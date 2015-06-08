@@ -22,8 +22,13 @@ public class MainActivity extends Activity {
 
     private RecyclerView rv;
 
-    private static final String AD_COLONY_ZONE_ID = "vzcf774f9b9bcd45eeac";
-    private static final String AD_COLONY_APP_ID = "app189e7ba1d2ce49f381";
+//    private static final String AD_COLONY_ZONE_ID = "vzcf774f9b9bcd45eeac";
+//    private static final String AD_COLONY_APP_ID = "app189e7ba1d2ce49f381";
+
+    //TEST IDs
+    private static final String AD_COLONY_APP_ID = "app185a7e71e1714831a49ec7";
+    private static final String AD_COLONY_ZONE_ID = "vz06e8c32a037749699e7050";
+
     private AdColonyNativeAdView adColonyAdView;
     private AdColonyTestAdapter adapter;
 
@@ -94,9 +99,12 @@ public class MainActivity extends Activity {
 
                 case AD:
                     AdColonyViewHolder avh = (AdColonyViewHolder) viewHolder;
-                    if (adColonyAdView != null && adColonyAdView.isReady()) {
+                    if (adColonyAdView != null && adColonyAdView.isReady() && avh.adColonyPlacement.getChildCount() == 0) {
                         Log.d(TAG, "now adding ad to view");
                         avh.adColonyPlacement.addView(adColonyAdView);
+                        avh.layoutSponsorLogo.addView(adColonyAdView.getAdvertiserImage()); //FAIL - why can't this just return a URL instead?
+                        avh.txtSponsorName.setText(adColonyAdView.getAdvertiserName());
+                        avh.txtSponsorBlurb.setText(adColonyAdView.getDescription());
                         adColonyAdView.notifyAddedToListView();
                     }
                     break;
@@ -127,11 +135,17 @@ public class MainActivity extends Activity {
     }
 
     private static class AdColonyViewHolder extends RecyclerView.ViewHolder {
-        public ViewGroup adColonyPlacement;
+        private ViewGroup adColonyPlacement;
+        private TextView txtSponsorName;
+        private TextView txtSponsorBlurb;
+        private ViewGroup layoutSponsorLogo;
 
         public AdColonyViewHolder(View itemView) {
             super(itemView);
             adColonyPlacement = (ViewGroup) itemView.findViewById(R.id.layout_ad_colony_slot);
+            txtSponsorName = (TextView) itemView.findViewById(R.id.txt_advertiser_name);
+            txtSponsorBlurb = (TextView) itemView.findViewById(R.id.txt_sponsorship_blurb);
+            layoutSponsorLogo = (ViewGroup) itemView.findViewById(R.id.img_sponsor_logo);
         }
     }
 

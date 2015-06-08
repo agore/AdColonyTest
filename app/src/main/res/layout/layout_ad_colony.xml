@@ -7,11 +7,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
+        <FrameLayout
             android:id="@+id/img_sponsor_logo"
             android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="center"/>
+            android:layout_height="100dp">
+
+        </FrameLayout>
         <TextView
             android:id="@+id/txt_advertiser_name"
             android:layout_width="wrap_content"
