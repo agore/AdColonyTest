@@ -26,8 +26,8 @@ public class MainActivity extends Activity {
 //    private static final String AD_COLONY_APP_ID = "app189e7ba1d2ce49f381";
 
     //TEST IDs
-    private static final String AD_COLONY_APP_ID = "app185a7e71e1714831a49ec7";
-    private static final String AD_COLONY_ZONE_ID = "vz06e8c32a037749699e7050";
+    private static final String AD_COLONY_APP_ID = "appb215510d988a4e4a87";
+    private static final String AD_COLONY_ZONE_ID = "vza207f7d04d374e7d83";
 
     private AdColonyNativeAdView adColonyAdView;
     private AdColonyTestAdapter adapter;
