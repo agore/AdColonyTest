@@ -3,18 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
+    android:orientation="vertical"
     android:padding="16dp"
-    android:orientation="vertical">
+    android:visibility="gone">
     <FrameLayout
         android:id="@+id/layout_ad_colony_slot"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:layout_gravity="center_vertical"/>
 
     <RelativeLayout
+        android:id="@+id/layout_ad_chatter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_marginTop="8dp">
         <FrameLayout
             android:id="@+id/img_sponsor_logo"
@@ -58,6 +61,5 @@
             android:layout_toRightOf="@+id/img_sponsor_logo"/>
 
     </RelativeLayout>
-
 
 </LinearLayout>

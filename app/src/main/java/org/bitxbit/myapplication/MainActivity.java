@@ -104,6 +104,8 @@ public class MainActivity extends Activity {
                     AdColonyViewHolder avh = (AdColonyViewHolder) viewHolder;
                     if (adColonyAdView != null && adColonyAdView.isReady() && avh.adColonyPlacement.getChildCount() == 0) {
                         Log.d(TAG, "now adding ad to view");
+                        avh.itemView.setVisibility(View.VISIBLE);
+                        avh.layoutAdChatter.setVisibility(View.VISIBLE);
                         avh.adColonyPlacement.addView(adColonyAdView);
                         avh.layoutSponsorLogo.addView(adColonyAdView.getAdvertiserImage()); //FAIL - why can't this just return a URL instead?
                         avh.txtSponsorName.setText(adColonyAdView.getAdvertiserName());
@@ -116,6 +118,7 @@ public class MainActivity extends Activity {
 
                         adColonyAdView.notifyAddedToListView();
                     }
+                    
                     break;
             }
         }
@@ -148,6 +151,7 @@ public class MainActivity extends Activity {
         private TextView txtSponsorName;
         private TextView txtSponsorBlurb;
         private ViewGroup layoutSponsorLogo;
+        private ViewGroup layoutAdChatter;
 
         public AdColonyViewHolder(View itemView) {
             super(itemView);
@@ -155,6 +159,7 @@ public class MainActivity extends Activity {
             txtSponsorName = (TextView) itemView.findViewById(R.id.txt_advertiser_name);
             txtSponsorBlurb = (TextView) itemView.findViewById(R.id.txt_advertiser_blurb);
             layoutSponsorLogo = (ViewGroup) itemView.findViewById(R.id.img_sponsor_logo);
+            layoutAdChatter = (ViewGroup) itemView.findViewById(R.id.layout_ad_chatter);
         }
     }
 
